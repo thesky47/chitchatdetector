@@ -1,4 +1,6 @@
 import openai
+import os 
+from dotenv import load_dotenv
 
 def categorize_sentence(sentence):
     prompt = f"Please categorize the following sentence as chitchat or not chitchat: '{sentence}'."
@@ -11,6 +13,6 @@ def categorize_sentence(sentence):
     
     return response
 
-openai.api_key = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 print(categorize_sentence(input("enter text: ")))
